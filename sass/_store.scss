@@ -1,0 +1,121 @@
+.women {
+    & .store__header--title , & .store__header--menu a {
+        color: $color-blush;
+    }
+    & .store__header--menu a:hover {
+        color: $color-sea;
+    }
+
+    & .store__header--menu .active {
+        color: $color-sea;
+    }
+}
+.men {
+    & .store__header--title , & .store__header--menu a {
+        color: $color-coral;
+    }
+    & .store__header--menu a:hover {
+        color: $color-grey-dark-3;
+    }
+    & .store__header--menu .active {
+        color: $color-grey-dark-3;
+    }
+}
+.kids {
+    & .store__header--title , & .store__header--menu a {
+        color: $color-kids;
+        
+    }
+    & .store__header--menu a:hover {
+        color: $color-grey-dark-3;
+    }
+    & .store__header--menu .active {
+        color:$color-grey-dark-3;
+    }
+}
+
+
+.store {
+    padding: 8rem 0;
+
+    &__header {
+
+
+
+        &--title {
+            font-size: 4.5rem;
+            text-align: center;
+            
+        }
+
+        &--menu {
+            text-align: center;
+            margin-top: 2rem;
+            & ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                & li {
+                    cursor: pointer;
+                    font-size: 2rem;
+
+                    &:not(:last-child) {
+                        margin-right: 1.6rem
+                    }
+                    & a {
+                       &:link, &:visited {
+                            display: inline-block;
+                            text-decoration: none;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            transition: all .5s;
+                       }
+                       &:active, &:hover {
+                            transform: translateY(-2px);
+                       }
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        margin-top: 8rem;
+        display: inline-flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        & .store__item {
+            //display: inline-block;
+            flex: 0 0 33.33%;
+            text-align: center;
+            //display: inline-block;
+            position: relative;
+            margin-bottom: 2rem;
+            &--image {
+                width: 250px;
+                margin: 0 auto;
+                &-img {
+                    width: 100%;
+                }
+            }
+
+            &--details {
+                position: absolute;
+                bottom: .5rem;
+                left: 50%;
+                width: 66%;
+                transform: translateX(-50%);
+                background-color: rgba($color: #000000, $alpha: .5);
+                padding: 8rem 0;
+                & p {
+
+                }
+
+                & .prix {
+
+                }
+            }
+        }
+    }
+}
