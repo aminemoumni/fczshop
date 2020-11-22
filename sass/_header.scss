@@ -9,13 +9,14 @@
     &__menu {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 2rem 0;
         &-logo {
             font-size: 3rem;
             font-weight: 600;
             
             & span {
-                color: $color-blush;
+                color: $color-white;
             }
         }
         &-nav {
@@ -37,9 +38,22 @@
                         color: inherit;
                         display: inline-block;
                         transition: all .5s;
+                        position: relative;
                         &:hover {
                             color: $color-white;
                             transform: translateY(-3px);
+                        }
+
+                        & .notification {
+                            font-size: 1.2rem;
+                            position: absolute;
+                            top: 0;
+                            right: -2rem;
+                            background-color: $color-sea;
+                            width: 18px;
+                            height: 18px;
+                            text-align: center;
+                            border-radius: 50rem;
                         }
 
                     }
@@ -193,6 +207,7 @@
         &__menu {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 2rem 0;
             &-logo {
                 font-size: 3rem;
@@ -221,11 +236,23 @@
                             color: white;
                             display: inline-block;
                             transition: all .5s;
+                            position: relative;
                             &:hover {
                                 color: $color-white;
                                 transform: translateY(-3px);
                             }
-    
+                            & .notification {
+                                font-size: 1.2rem;
+                                position: absolute;
+                                color: $color-kids;
+                                top: 0;
+                                right: -2rem;
+                                background-color: $color-white;
+                                width: 18px;
+                                height: 18px;
+                                text-align: center;
+                                border-radius: 50rem;
+                            }
                         }
                     }
                 }
@@ -381,6 +408,7 @@
         &__menu {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 2rem 0;
             &-logo {
                 font-size: 3rem;
@@ -409,11 +437,22 @@
                             color: white;
                             display: inline-block;
                             transition: all .5s;
+                            position: relative;
                             &:hover {
                                 color: $color-white;
                                 transform: translateY(-3px);
                             }
-    
+                            & .notification {
+                                font-size: 1.2rem;
+                                position: absolute;
+                                top: 0;
+                                right: -2rem;
+                                background-color: $color-grey-dark-3;
+                                width: 18px;
+                                height: 18px;
+                                text-align: center;
+                                border-radius: 50rem;
+                            }
                         }
                     }
                 }

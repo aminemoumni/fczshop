@@ -1,0 +1,201 @@
+.women {
+
+    & .checkout__form--field .btn {
+        background-color: $color-blush;
+        
+    }
+}
+.men {
+
+    & .checkout__form--field .btn {
+        background-color: $color-coral;
+        
+    }
+}
+.kids {
+
+    & .checkout__form--field .btn {
+        background-color: $color-kids;
+    }
+}
+
+.activeCheckoutSection {
+    display: block !important;
+    transition: display .5s ease-in-out;
+
+}
+.checkout {
+    display: block;
+    z-index: 21;
+    position: fixed;
+    width: 65%;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 2rem rgba($color: #000000, $alpha: .4);
+    border-radius: 10px;
+
+    & .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        transition: all .5s;
+        border: 1px solid $color-black;
+        border-radius: 50rem;
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 .2rem .5rem rgba($color: #000000, $alpha: .2);
+        }
+    }
+
+    &__container {
+        display: flex;
+    }
+
+
+    &__items {
+        flex: 0 0 55%;
+        border-right: 1px solid $color-grey-dark-3;
+        padding: 2rem 4rem;
+
+        & i {
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0;
+            cursor: pointer;
+        }
+        & .sliderChekoutWrapper {
+            max-height: 500px;
+        }
+
+        & .sliderChkout {
+            height: 400px;
+            overflow-y: hidden;
+
+        }
+        & h4 {
+            color: $color-grey-dark-2;
+            font-size: 2rem;
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+
+        }
+        &--item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-grey-dark-2;
+            }
+            &:not(:first-child) {
+                margin-top: .5rem;
+            }
+            & .item__image {
+                width: 70px;
+
+                &--img {
+                    width: 100%;
+                }
+            }
+            & .item__title {
+                overflow: hidden;
+                width: 150px;
+                font-size: 1.7rem;
+                font-weight: 500;
+            }
+            & .item__input {
+                width: 40px;
+            }
+            & input[type=number]::-webkit-inner-spin-button {
+                opacity: 1
+            }
+            & .item__price {
+                font-weight: 900;
+                font-size: 1.5rem;
+            }
+            & .item__remove {
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+    &__form {
+        flex: 0 0 45%;
+        padding: 2rem 4rem;
+
+        & h4 {
+            color: $color-grey-dark-2;
+            font-size: 2rem;
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 3.5rem;
+
+        }
+
+        & form {
+
+            
+
+        }
+
+        &--field {
+            display: block;
+            margin: 2rem 0;
+
+            &:last-child {
+                text-align: center;
+            }
+            & label {
+                display: block;
+                font-size: 1.6rem;
+                font-weight: 500;
+
+            }
+
+            & input, & textarea {
+                width: 100%;
+                outline: none;
+                border: 1px solid $color-grey-dark-3;
+                border-radius: 10px;
+                padding: .5rem .5rem;
+                font-size: 1.6rem;
+
+
+            }
+
+            & .btn {
+                padding: .5rem 2rem;
+                outline: none;
+                border: none;
+                border-radius: 20rem;
+                color: white;
+                font-size: 2rem;
+                text-transform: uppercase;
+                margin-top: 4rem;
+                cursor: pointer;
+                transition: all .5s;
+                & span {
+                    font-weight: 700;
+                }
+
+                &:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2)
+                }
+            }
+        }
+    }
+}

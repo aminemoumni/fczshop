@@ -1,0 +1,101 @@
+.women {
+    & .footer {
+        background-color: $color-sea;
+    }
+}
+.men {
+    & .footer {
+        background-color: $color-grey-dark-3;
+        color: white !important;
+
+        & h3 {
+
+            & span {
+                color: $color-coral;
+            }
+        }
+    }
+}
+.kids {
+    & .footer {
+        background-color: $color-kids;
+    }
+}
+
+.footer {
+   
+
+    &__container {
+        padding: 4rem 0 2rem 0;
+
+        & h3 {
+            font-size: 3.5rem;
+            display: block;
+            text-align: center;
+            margin-bottom: 2.5rem;
+
+            & span {
+                color: $color-white;
+            }
+        }
+        
+    }
+    &__details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5rem 3rem 5rem;
+    }
+
+    & h4 {
+        font-size: 1.9rem;
+        text-align: center;
+        margin-bottom: 1.6rem;
+        margin-top: auto;
+    }
+    &__social {
+        
+        & .social {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            font-size: 2.1rem;
+            
+           & a {
+               text-decoration: none;
+               color: Black;
+                transition: color .5s;
+               &:hover {
+
+                color: rgba(0, 0, 0, .5);
+               }
+           }
+        }
+    }
+
+    &__contact {
+        
+
+        &--contact {
+           font-size: 1.6rem;
+            & i {
+                margin-right: 5px;
+            }
+
+            & span {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    &__copyright {
+        display: block;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        //text-transform: uppercase;
+        & i {
+            color: red;
+        }
+    }
+}

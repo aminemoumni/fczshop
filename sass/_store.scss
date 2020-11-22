@@ -9,6 +9,12 @@
     & .store__header--menu .active {
         color: $color-sea;
     }
+    & .store__header--menu .active {
+        color: $color-sea;
+    }
+    & .store__item--details a {
+        background-color: $color-sea;
+    }
 }
 .men {
     & .store__header--title , & .store__header--menu a {
@@ -17,8 +23,8 @@
     & .store__header--menu a:hover {
         color: $color-grey-dark-3;
     }
-    & .store__header--menu .active {
-        color: $color-grey-dark-3;
+    & .store__item--details a {
+        background-color: $color-coral;
     }
 }
 .kids {
@@ -31,6 +37,9 @@
     }
     & .store__header--menu .active {
         color:$color-grey-dark-3;
+    }
+    & .store__item--details a {
+        background-color: $color-kids;
     }
 }
 
@@ -82,38 +91,76 @@
     &__body {
         margin-top: 8rem;
         display: inline-flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
 
         & .store__item {
             //display: inline-block;
-            flex: 0 0 33.33%;
+            flex: 0 0 30%;
             text-align: center;
-            //display: inline-block;
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 4.5rem;
+            transition: all 2s;
+            overflow: hidden;
+            &:hover {
+                & .store__item--details {
+                    opacity: 1;
+                    bottom: 0rem;
+                }
+
+                & .store__item--image-img {
+                    transform: scale(1.05);
+                    filter: blur(2px);
+                }
+            }
             &--image {
-                width: 250px;
-                margin: 0 auto;
+        
                 &-img {
-                    width: 100%;
+                    max-width: 100%;
+                    transition: all .5s;
                 }
             }
 
             &--details {
+                opacity: 0;
                 position: absolute;
-                bottom: .5rem;
+                bottom: -10rem;
                 left: 50%;
-                width: 66%;
+                width: 100%;
                 transform: translateX(-50%);
-                background-color: rgba($color: #000000, $alpha: .5);
-                padding: 8rem 0;
+                background-color: rgba($color: #000000, $alpha: .8);
+                //padding: 8rem 0;
+                color: White;
+                height: 50%;
+                font-size: 2rem;
+                padding: 3rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                transition: all .5s;
                 & p {
 
                 }
 
                 & .prix {
+                    font-weight: 900;
+                    margin-top: auto;
+                }
 
+                & a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: white;
+                    padding: .5rem 1.5rem;
+                    width: 50%;
+                    margin: 2rem auto 0 auto;
+                    border-radius: 50rem;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    transition: transform .3s;
+                    &:hover {
+                        transform: translateY(-3px);
+                    }
                 }
             }
         }
