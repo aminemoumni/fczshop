@@ -528,7 +528,7 @@ body {
   transition: display .5s ease-in-out; }
 
 .checkout {
-  display: block;
+  display: none;
   z-index: 21;
   position: fixed;
   width: 65%;

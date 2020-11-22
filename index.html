@@ -569,10 +569,6 @@
         $("#checkout__open").click(() => {
             $(".checkout").slideDown('2000').addClass('activeCheckoutSection');
         })
-
-
-
-
         $("#slideUpChkout").click(function() {
             $(".sliderChkout").animate({scrollTop: '-=150px'}, 800);
         })
@@ -606,15 +602,15 @@
 
         var quantityInput = document.getElementsByClassName('item__input')
         for (var i = 0; i < quantityInput.length; i++) {
-                var quantity = quantityInput[i];
-                quantity.addEventListener('change', function(e) {
-                    var input = e.target;
-                    if(isNaN(input.value) || input.value <=0){
-                        input.value = 1;
-                    }
-                    updateCartTotal()
-                })
-            }
+            var quantity = quantityInput[i];
+            quantity.addEventListener('change', function(e) {
+                var input = e.target;
+                if(isNaN(input.value) || input.value <=0){
+                    input.value = 1;
+                }
+                updateCartTotal()
+            })
+        }
     });
 </script>
 </body>
