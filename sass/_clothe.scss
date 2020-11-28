@@ -16,15 +16,18 @@
 
 }
 .men {
-    & .clothe__menu & img {
-        border: 1px solid $color-coral;
-     }
-
-
-     & .active {
-        border: 2px solid $color-grey-dark-3;
+    & .clothe__menu {
+        & img {
+            border: 1px solid $color-coral;
+         }
+         & .active {
+            border: 2px solid $color-grey-dark-3;
+        }
+    
     }
 
+
+     
     & .clothe__details--detail .buttonvalide a {
         background-color: $color-coral;
     }
@@ -65,6 +68,19 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     
+    @media screen and (max-width: $bp-md) {
+        width: 90%;
+        height: 700px;
+    }
+    @media screen and (max-width: $bp-small) {
+        width: 90%;
+        height: 600px;
+        overflow: scroll;
+    }
+    &::-webkit-scrollbar {
+        width: 0px;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
     & .close {
         position: absolute;
         top: 2rem;
@@ -88,19 +104,28 @@
     &__container {
         display: flex;
         height: 100%;
+        
         & .clothe__menu {
             flex: 0 0 10%;
             padding: 1rem 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            @media screen and (max-width: $bp-md) {
+                padding: 1rem 1rem;   
+            }
+            
             & .fa-arrow-circle-up , & .fa-arrow-circle-down{
                 display: block;
                 text-align: center;
                 margin: 2rem 0;
                 font-size: 2rem;
                 cursor: pointer;
+                
             }
+           
+            
+            
             
             & ul {
                 list-style: none;
@@ -110,16 +135,28 @@
                 margin: 0 auto;
                 //overflow: auto;
                 max-height: 500px;
-                
+                overflow: hidden;
+                // @media screen and (max-width: $bp-md) {
+                //     max-height: 800px;
+                // }
                 & #slider {
                     height: 400px;
                     overflow-y: hidden;
+                    @media screen and (max-width: $bp-md) {
+                        overflow: scroll;
 
+                        
+                    }
+                    &::-webkit-scrollbar {
+                        width: 0px;  /* Remove scrollbar space */
+                        background: transparent;  /* Optional: just make scrollbar invisible */
+                    }
                 }
                 & li {
                     //width: 100%;
                     margin: 0 auto;
                     text-align: center;
+                    
                     &:not(:last-child) {
                         margin-bottom: 1rem;
                     }
@@ -130,6 +167,9 @@
                         & img {
                             width: 75%;
                             margin: 0 auto;
+                            @media screen and (max-width: $bp-md) {
+                                width: 100%;
+                            }
                         }
                     }
                 }
@@ -138,12 +178,28 @@
         & .clothe__right {
             flex: 0 0 90%;
             display: flex;
+            @media screen and (max-width: $bp-md) {
+                flex: 0 0 80%;
+                flex-direction: column;
+                
+            }
             & .clothe__image {
                 flex:0 0 50%;
+
+                @media screen and (max-width: $bp-md) {
+                    flex:0 0 50%;
+                    width: 200px;
+                    margin: 0 auto;
+                    margin-top: 2rem;
+                }
                 & img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    @media screen and (max-width: $bp-md) {
+                        object-fit: cover;
+                        
+                    }
                 }
             }
             & .clothe__details {
@@ -153,13 +209,24 @@
                     font-size: 3rem;
                     text-align: center;
                     margin-bottom: 4rem;
-
+                    @media screen and (max-width: $bp-md) {
+                        margin-bottom: 1rem;
+                        
+                    }
                 }
 
                 &--detail {
-
+                    @media screen and (max-width: $bp-md) {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
                     & .details {
                         margin-bottom: 2rem;
+                        @media screen and (max-width: $bp-md) {
+                            flex: 0 0 40%;
+                            margin-bottom: 1rem;
+                        }
                         & h4 {
                             font-size: 1.8rem;
                             color: $color-grey-dark-2;
@@ -179,6 +246,10 @@
 
                     & .colors {
                         margin-bottom: 2rem;
+                        @media screen and (max-width: $bp-md) {
+                            flex: 0 0 40%;
+                            margin-bottom: 1rem;
+                        }
                         & h4 {
                             font-size: 1.8rem;
                             color: $color-grey-dark-2;
@@ -198,6 +269,10 @@
                             }
                             &:hover {
                                 transform: translateY(-3px);
+                                @media screen and (max-width: $bp-md) {
+                                    transform: none;
+
+                                }
                             }
 
                             
@@ -279,6 +354,10 @@
                             }
                             &:hover {
                                 transform: translateY(-3px);
+                                @media screen and (max-width: $bp-md) {
+                                    transform: none;
+
+                                }
                             }
                             
                         }
@@ -317,6 +396,11 @@
                     & .buttonvalide {
                         margin-top: 6rem;
                         text-align: center;
+                        @media screen and (max-width: $bp-md) {
+                            flex: 0 0 100%;
+                            margin-top: 0rem;
+                            
+                        }
                         & span {
                             display: block;
                             margin-bottom: 1rem;

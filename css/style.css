@@ -70,15 +70,53 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 0%;
   background-color: rgba(0, 0, 0, 0.3); }
+
+.overlayMenu {
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(0, 0, 0, 0); }
+
+.activeOverlay {
+  height: 100%;
+  transition: height .5s; }
+
+.activeOverlayMenu {
+  height: 100%; }
+
+.women .sticky .header__menu {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transition-duration: 1s;
+  transition-property: padding; }
+  .women .sticky .header__menu-logo {
+    color: black;
+    font-size: 2.5rem; }
+    .women .sticky .header__menu-logo span {
+      color: black; }
+  .women .sticky .header__menu-nav .activeNav li {
+    font-size: 3rem; }
+  .women .sticky .header__menu-nav li {
+    font-size: 1.9rem; }
 
 .women .header {
   background-image: url("../images/banner.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .women .header__menu {
     display: flex;
     justify-content: space-between;
@@ -86,17 +124,50 @@ body {
     padding: 2rem 0; }
     .women .header__menu-logo {
       font-size: 3rem;
-      font-weight: 600; }
+      font-weight: 600;
+      z-index: 15; }
       .women .header__menu-logo span {
         color: white; }
+    .women .header__menu-nav .activeNav {
+      display: block !important;
+      animation: widthUpdate .5s forwards; }
+      @media screen and (min-width: 50em) {
+        .women .header__menu-nav .activeNav {
+          width: 100% !important; } }
+    @media screen and (max-width: 50em) {
+      .women .header__menu-nav .nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 5%;
+        color: white;
+        height: 100vh;
+        z-index: 14;
+        justify-content: center;
+        animation: widthUpdate .5s forwards; } }
     .women .header__menu-nav .nav__items {
       list-style: none;
       display: flex; }
+      @media screen and (max-width: 50em) {
+        .women .header__menu-nav .nav__items {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%; } }
       .women .header__menu-nav .nav__items--item {
         font-size: 2.2rem;
         font-weight: 600; }
+        @media screen and (max-width: 50em) {
+          .women .header__menu-nav .nav__items--item {
+            font-size: 3rem; } }
         .women .header__menu-nav .nav__items--item:not(:last-child) {
           margin-right: 4rem; }
+          @media screen and (max-width: 50em) {
+            .women .header__menu-nav .nav__items--item:not(:last-child) {
+              margin-right: 0;
+              margin-bottom: 5rem; } }
       .women .header__menu-nav .nav__items--link {
         text-decoration: none;
         color: inherit;
@@ -115,7 +186,17 @@ body {
           width: 18px;
           height: 18px;
           text-align: center;
-          border-radius: 50rem; }
+          display: flex;
+          border-radius: 50rem;
+          justify-content: center;
+          align-items: center; }
+    .women .header__menu-nav .menuNav {
+      font-size: 3rem;
+      display: none;
+      cursor: pointer; }
+      @media screen and (max-width: 50em) {
+        .women .header__menu-nav .menuNav {
+          display: block; } }
   .women .header .banner {
     display: flex;
     justify-content: space-between;
@@ -151,6 +232,9 @@ body {
       top: 55%;
       transform: translateY(-50%);
       right: 10rem; }
+      @media screen and (max-width: 62.5em) {
+        .women .header .banner__image {
+          display: none; } }
       .women .header .banner__image--container {
         width: 350px; }
         .women .header .banner__image--container .image {
@@ -160,7 +244,8 @@ body {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  display: flex; }
   .women .navButton .item {
     background: none;
     outline: none;
@@ -219,6 +304,31 @@ body {
   .women .btnActive:not(:last-child) {
     margin-right: 2rem; }
 
+.kids .sticky .header__menu {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transition-duration: 1s;
+  transition-property: padding; }
+  .kids .sticky .header__menu-logo {
+    color: black;
+    font-size: 2.5rem; }
+    .kids .sticky .header__menu-logo span {
+      color: black; }
+  .kids .sticky .header__menu-nav .activeNav a {
+    color: white !important; }
+  .kids .sticky .header__menu-nav .nav__items li {
+    font-size: 1.9rem; }
+  .kids .sticky .header__menu-nav .nav__items a {
+    color: black; }
+    .kids .sticky .header__menu-nav .nav__items a .notification {
+      color: white; }
+
 .kids .header {
   background-image: url("../images/kids.jpg");
   background-size: cover;
@@ -232,17 +342,51 @@ body {
     padding: 2rem 0; }
     .kids .header__menu-logo {
       font-size: 3rem;
-      font-weight: 600; }
+      font-weight: 600;
+      z-index: 15; }
       .kids .header__menu-logo span {
-        color: #4aa03f; }
+        color: white; }
+    .kids .header__menu-nav .activeNav {
+      display: block !important;
+      animation: widthUpdate .5s forwards; }
+      @media screen and (min-width: 50em) {
+        .kids .header__menu-nav .activeNav {
+          width: 100% !important; } }
+    @media screen and (max-width: 50em) {
+      .kids .header__menu-nav .nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 5%;
+        color: white;
+        height: 100vh;
+        z-index: 14;
+        justify-content: center;
+        animation: widthUpdate .5s forwards; } }
     .kids .header__menu-nav .nav__items {
       list-style: none;
       display: flex; }
+      @media screen and (max-width: 50em) {
+        .kids .header__menu-nav .nav__items {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%; } }
       .kids .header__menu-nav .nav__items--item {
         font-size: 2.2rem;
         font-weight: 600; }
+        @media screen and (max-width: 50em) {
+          .kids .header__menu-nav .nav__items--item {
+            font-size: 3rem; } }
         .kids .header__menu-nav .nav__items--item:not(:last-child) {
           margin-right: 4rem; }
+          @media screen and (max-width: 50em) {
+            .kids .header__menu-nav .nav__items--item:not(:last-child) {
+              margin-right: 0;
+              margin-bottom: 5rem;
+              font-size: 3rem; } }
       .kids .header__menu-nav .nav__items--link {
         text-decoration: none;
         color: white;
@@ -255,14 +399,24 @@ body {
         .kids .header__menu-nav .nav__items--link .notification {
           font-size: 1.2rem;
           position: absolute;
-          color: #4aa03f;
+          color: white;
           top: 0;
           right: -2rem;
-          background-color: white;
+          background-color: #4aa03f;
           width: 18px;
           height: 18px;
           text-align: center;
-          border-radius: 50rem; }
+          display: flex;
+          border-radius: 50rem;
+          justify-content: center;
+          align-items: center; }
+    .kids .header__menu-nav .menuNav {
+      font-size: 3rem;
+      display: none;
+      cursor: pointer; }
+      @media screen and (max-width: 50em) {
+        .kids .header__menu-nav .menuNav {
+          display: block; } }
   .kids .header .banner {
     display: flex;
     justify-content: space-between;
@@ -298,6 +452,9 @@ body {
       top: 55%;
       transform: translateY(-50%);
       right: 10rem; }
+      @media screen and (max-width: 62.5em) {
+        .kids .header .banner__image {
+          display: none; } }
       .kids .header .banner__image--container {
         width: 450px; }
         .kids .header .banner__image--container .image {
@@ -307,7 +464,8 @@ body {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  display: flex; }
   .kids .navButton .item {
     background: none;
     outline: none;
@@ -366,6 +524,33 @@ body {
   .kids .btnActive:not(:last-child) {
     margin-right: 2rem; }
 
+.men .sticky .header__menu {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  transition-duration: 1s;
+  transition-property: padding; }
+  .men .sticky .header__menu-logo {
+    color: black;
+    font-size: 2.5rem; }
+    .men .sticky .header__menu-logo span {
+      color: black; }
+  .men .sticky .header__menu-nav .activeNav li {
+    font-size: 3.5rem !important; }
+  .men .sticky .header__menu-nav .activeNav a {
+    color: white !important; }
+  .men .sticky .header__menu-nav .nav__items li {
+    font-size: 1.9rem; }
+  .men .sticky .header__menu-nav .nav__items a {
+    color: black; }
+    .men .sticky .header__menu-nav .nav__items a .notification {
+      color: white; }
+
 .men .header {
   background-image: url("../images/guys.jpg");
   background-size: cover;
@@ -380,17 +565,51 @@ body {
     .men .header__menu-logo {
       font-size: 3rem;
       font-weight: 600;
+      z-index: 15;
       color: white; }
       .men .header__menu-logo span {
-        color: #FF7F50; }
+        color: white; }
+    .men .header__menu-nav .activeNav {
+      display: block !important;
+      animation: widthUpdate .5s forwards; }
+      @media screen and (min-width: 50em) {
+        .men .header__menu-nav .activeNav {
+          width: 100% !important; } }
+    @media screen and (max-width: 50em) {
+      .men .header__menu-nav .nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 5%;
+        color: white;
+        height: 100vh;
+        z-index: 14;
+        justify-content: center;
+        animation: widthUpdate .5s forwards; } }
     .men .header__menu-nav .nav__items {
       list-style: none;
       display: flex; }
+      @media screen and (max-width: 50em) {
+        .men .header__menu-nav .nav__items {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%; } }
       .men .header__menu-nav .nav__items--item {
         font-size: 2.2rem;
         font-weight: 600; }
+        @media screen and (max-width: 50em) {
+          .men .header__menu-nav .nav__items--item {
+            font-size: 3rem; } }
         .men .header__menu-nav .nav__items--item:not(:last-child) {
           margin-right: 4rem; }
+          @media screen and (max-width: 50em) {
+            .men .header__menu-nav .nav__items--item:not(:last-child) {
+              margin-right: 0;
+              margin-bottom: 5rem;
+              font-size: 3rem; } }
       .men .header__menu-nav .nav__items--link {
         text-decoration: none;
         color: white;
@@ -409,7 +628,17 @@ body {
           width: 18px;
           height: 18px;
           text-align: center;
-          border-radius: 50rem; }
+          display: flex;
+          border-radius: 50rem;
+          justify-content: center;
+          align-items: center; }
+    .men .header__menu-nav .menuNav {
+      font-size: 3rem;
+      display: none;
+      cursor: pointer; }
+      @media screen and (max-width: 50em) {
+        .men .header__menu-nav .menuNav {
+          display: block; } }
   .men .header .banner {
     display: flex;
     justify-content: space-between;
@@ -446,6 +675,9 @@ body {
       top: 55%;
       transform: translateY(-50%);
       right: 10rem; }
+      @media screen and (max-width: 62.5em) {
+        .men .header .banner__image {
+          display: none; } }
       .men .header .banner__image--container {
         width: 500px; }
         .men .header .banner__image--container .image {
@@ -455,7 +687,8 @@ body {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  display: flex; }
   .men .navButton .item {
     background: none;
     outline: none;
@@ -514,6 +747,12 @@ body {
   .men .btnActive:not(:last-child) {
     margin-right: 2rem; }
 
+@keyframes widthUpdate {
+  from {
+    width: 0%; }
+  to {
+    width: 45%; } }
+
 .women .checkout__form--field .btn {
   background-color: #ff89b2; }
 
@@ -539,6 +778,12 @@ body {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
   border-radius: 10px; }
+  @media screen and (max-width: 62.5em) {
+    .checkout {
+      overflow: scroll; } }
+  @media screen and (max-width: 37.5em) {
+    .checkout {
+      width: 95%; } }
   .checkout .close {
     position: absolute;
     top: 1rem;
@@ -557,12 +802,23 @@ body {
     .checkout .close:hover {
       transform: translateY(-3px);
       box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); }
+    @media screen and (max-width: 62.5em) {
+      .checkout .close {
+        position: fixed; } }
   .checkout__container {
     display: flex; }
+    @media screen and (max-width: 62.5em) {
+      .checkout__container {
+        flex-direction: column;
+        overflow: scroll;
+        padding: 0 2rem; } }
   .checkout__items {
     flex: 0 0 55%;
     border-right: 1px solid #333;
     padding: 2rem 4rem; }
+    @media screen and (max-width: 62.5em) {
+      .checkout__items {
+        border: none; } }
     .checkout__items i {
       display: block;
       text-align: center;
@@ -574,6 +830,15 @@ body {
     .checkout__items .sliderChkout {
       height: 400px;
       overflow-y: hidden; }
+      @media screen and (max-width: 62.5em) {
+        .checkout__items .sliderChkout {
+          overflow: scroll;
+          height: 200px; } }
+      .checkout__items .sliderChkout::-webkit-scrollbar {
+        width: 0px;
+        /* Remove scrollbar space */
+        background: transparent;
+        /* Optional: just make scrollbar invisible */ }
     .checkout__items h4 {
       color: #999;
       font-size: 2rem;
@@ -597,6 +862,9 @@ body {
         width: 150px;
         font-size: 1.7rem;
         font-weight: 500; }
+        @media screen and (max-width: 75em) {
+          .checkout__items--item .item__title {
+            width: 100px; } }
       .checkout__items--item .item__input {
         width: 40px; }
       .checkout__items--item input[type=number]::-webkit-inner-spin-button {
@@ -659,9 +927,6 @@ body {
 .women .store__header--menu .active {
   color: #80ccd8; }
 
-.women .store__header--menu .active {
-  color: #80ccd8; }
-
 .women .store__item--details a {
   background-color: #80ccd8; }
 
@@ -669,6 +934,9 @@ body {
   color: #FF7F50; }
 
 .men .store__header--menu a:hover {
+  color: #333; }
+
+.men .store__header--menu .active {
   color: #333; }
 
 .men .store__item--details a {
@@ -723,6 +991,12 @@ body {
       margin-bottom: 4.5rem;
       transition: all 2s;
       overflow: hidden; }
+      @media screen and (max-width: 50em) {
+        .store__body .store__item {
+          flex: 0 0 47%; } }
+      @media screen and (max-width: 37.5em) {
+        .store__body .store__item {
+          flex: 0 0 100%; } }
       .store__body .store__item:hover .store__item--details {
         opacity: 1;
         bottom: 0rem; }
@@ -792,6 +1066,9 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0 5rem 3rem 5rem; }
+  @media screen and (max-width: 50em) {
+    .footer__details {
+      flex-direction: column; } }
 
 .footer h4 {
   font-size: 1.9rem;
@@ -835,10 +1112,10 @@ body {
 .women .clothe__details--detail .buttonvalide a {
   background-color: #80ccd8; }
 
-.men .clothe__menu .men img {
+.men .clothe__menu img {
   border: 1px solid #FF7F50; }
 
-.men .active {
+.men .clothe__menu .active {
   border: 2px solid #333; }
 
 .men .clothe__details--detail .buttonvalide a {
@@ -870,6 +1147,20 @@ body {
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px; }
+  @media screen and (max-width: 50em) {
+    .clothe {
+      width: 90%;
+      height: 700px; } }
+  @media screen and (max-width: 37.5em) {
+    .clothe {
+      width: 90%;
+      height: 600px;
+      overflow: scroll; } }
+  .clothe::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */ }
   .clothe .close {
     position: absolute;
     top: 2rem;
@@ -897,6 +1188,9 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center; }
+      @media screen and (max-width: 50em) {
+        .clothe__container .clothe__menu {
+          padding: 1rem 1rem; } }
       .clothe__container .clothe__menu .fa-arrow-circle-up, .clothe__container .clothe__menu .fa-arrow-circle-down {
         display: block;
         text-align: center;
@@ -909,10 +1203,19 @@ body {
         flex-direction: column;
         justify-content: space-between;
         margin: 0 auto;
-        max-height: 500px; }
+        max-height: 500px;
+        overflow: hidden; }
         .clothe__container .clothe__menu ul #slider {
           height: 400px;
           overflow-y: hidden; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__menu ul #slider {
+              overflow: scroll; } }
+          .clothe__container .clothe__menu ul #slider::-webkit-scrollbar {
+            width: 0px;
+            /* Remove scrollbar space */
+            background: transparent;
+            /* Optional: just make scrollbar invisible */ }
         .clothe__container .clothe__menu ul li {
           margin: 0 auto;
           text-align: center; }
@@ -924,15 +1227,31 @@ body {
             .clothe__container .clothe__menu ul li a img {
               width: 75%;
               margin: 0 auto; }
+              @media screen and (max-width: 50em) {
+                .clothe__container .clothe__menu ul li a img {
+                  width: 100%; } }
     .clothe__container .clothe__right {
       flex: 0 0 90%;
       display: flex; }
+      @media screen and (max-width: 50em) {
+        .clothe__container .clothe__right {
+          flex: 0 0 80%;
+          flex-direction: column; } }
       .clothe__container .clothe__right .clothe__image {
         flex: 0 0 50%; }
+        @media screen and (max-width: 50em) {
+          .clothe__container .clothe__right .clothe__image {
+            flex: 0 0 50%;
+            width: 200px;
+            margin: 0 auto;
+            margin-top: 2rem; } }
         .clothe__container .clothe__right .clothe__image img {
           width: 100%;
           height: 100%;
           object-fit: cover; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__right .clothe__image img {
+              object-fit: cover; } }
       .clothe__container .clothe__right .clothe__details {
         flex: 0 0 50%;
         padding: 3rem 5rem; }
@@ -940,8 +1259,20 @@ body {
           font-size: 3rem;
           text-align: center;
           margin-bottom: 4rem; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__right .clothe__details h3 {
+              margin-bottom: 1rem; } }
+        @media screen and (max-width: 50em) {
+          .clothe__container .clothe__right .clothe__details--detail {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; } }
         .clothe__container .clothe__right .clothe__details--detail .details {
           margin-bottom: 2rem; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__right .clothe__details--detail .details {
+              flex: 0 0 40%;
+              margin-bottom: 1rem; } }
           .clothe__container .clothe__right .clothe__details--detail .details h4 {
             font-size: 1.8rem;
             color: #999;
@@ -954,6 +1285,10 @@ body {
               margin-right: 1.3rem; }
         .clothe__container .clothe__right .clothe__details--detail .colors {
           margin-bottom: 2rem; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__right .clothe__details--detail .colors {
+              flex: 0 0 40%;
+              margin-bottom: 1rem; } }
           .clothe__container .clothe__right .clothe__details--detail .colors h4 {
             font-size: 1.8rem;
             color: #999;
@@ -971,6 +1306,9 @@ body {
               margin-right: 2rem; }
             .clothe__container .clothe__right .clothe__details--detail .colors .color:hover {
               transform: translateY(-3px); }
+              @media screen and (max-width: 50em) {
+                .clothe__container .clothe__right .clothe__details--detail .colors .color:hover {
+                  transform: none; } }
           .clothe__container .clothe__right .clothe__details--detail .colors .red {
             background-color: #fd1d1d; }
           .clothe__container .clothe__right .clothe__details--detail .colors .green {
@@ -1027,6 +1365,9 @@ body {
               margin-right: 1.6rem; }
             .clothe__container .clothe__right .clothe__details--detail .sizes span:hover {
               transform: translateY(-3px); }
+              @media screen and (max-width: 50em) {
+                .clothe__container .clothe__right .clothe__details--detail .sizes span:hover {
+                  transform: none; } }
           .clothe__container .clothe__right .clothe__details--detail .sizes .disabled {
             background-color: rgba(0, 0, 0, 0.1); }
             .clothe__container .clothe__right .clothe__details--detail .sizes .disabled:hover {
@@ -1052,6 +1393,10 @@ body {
         .clothe__container .clothe__right .clothe__details--detail .buttonvalide {
           margin-top: 6rem;
           text-align: center; }
+          @media screen and (max-width: 50em) {
+            .clothe__container .clothe__right .clothe__details--detail .buttonvalide {
+              flex: 0 0 100%;
+              margin-top: 0rem; } }
           .clothe__container .clothe__right .clothe__details--detail .buttonvalide span {
             display: block;
             margin-bottom: 1rem;
@@ -1161,6 +1506,13 @@ body {
   transform: translate(-50%, 0);
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
   border-radius: 10px; }
+  @media screen and (max-width: 62.5em) {
+    .contact {
+      height: 500px; } }
+  @media screen and (max-width: 37.5em) {
+    .contact {
+      width: 300px;
+      height: 400px; } }
   .contact .close {
     position: absolute;
     top: 1rem;

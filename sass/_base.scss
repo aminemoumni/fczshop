@@ -111,6 +111,22 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 0%;
     background-color: rgba($color: #000000, $alpha: .3);
+}
+.overlayMenu {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba($color: #000000, $alpha: .0);
+}
+.activeOverlay {
+    height: 100%;
+    transition: height .5s;
+}
+.activeOverlayMenu {
+    height: 100%;
 }

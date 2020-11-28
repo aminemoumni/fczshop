@@ -12,11 +12,12 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+
     <script src="./js/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Fczshop</title>
 </head>
-<body class="women">
+<body class="men">
     <header class="header">
         <div class="row">
             <div class="header__menu">
@@ -24,22 +25,23 @@
                     <p>Fcz<span>Store</span></p>
                 </div>
                 <div class="header__menu-nav">
-                    <nav class="nav">
+                    <nav class="nav ">
                         <ul class="nav__items">
                             <li class="nav__items--item">
-                                <a href="#" class="nav__items--link">Store</a>
+                                <a class="nav__items--link">Store</a>
                             </li>
                             <li class="nav__items--item">
-                                <a href="#" class="nav__items--link" id="contact__us">Contact</a>
+                                <a class="nav__items--link" id="contact__us">Contact</a>
                             </li>
                             <li class="nav__items--item">
-                               <a href="#" class="nav__items--link" id="checkout__open">My Cart <span class="notification">7</span></a>
+                               <a class="nav__items--link" id="checkout__open">My Cart <span class="notification">7</span></a>
                             </li>
                             <!-- <li class="nav__items--item">
                                 <a href="#" class="nav__items--link">Contact</a>
                             </li> -->
                         </ul>
                     </nav>
+                    <i class="fas fa-bars menuNav" id="hamburger"></i>
                 </div>
             </div>
 
@@ -199,12 +201,14 @@
             </p>
         </div>
     </footer>
-    <!-- <div class="overlay"></div> -->
+    <div class="overlay"></div>
+    <div class="overlayMenu"></div>
     <div class="clothe">
         <i class="fas fa-times close" id="closeActiveClotheSection"></i>
         <div class="clothe__container">
             <div class="clothe__menu">
                 <i class="fas fa-arrow-circle-up" id="slideTop"></i>
+                
                 <ul id="slide-wrapper">
                     <div id="slider">
                         <li><a ><img class="clothe__imag active" src="./images/girl6.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
@@ -213,9 +217,15 @@
                         <li><a><img class="clothe__imag" src="./images/girl7.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
                         <li><a><img class="clothe__imag" src="./images/girl5.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
                         <li><a><img class="clothe__imag" src="./images/girl4.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
+                        <li><a><img class="clothe__imag" src="./images/girl4.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
+                        <li><a><img class="clothe__imag" src="./images/girl4.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
+                        <li><a><img class="clothe__imag" src="./images/girl4.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
+                        <li><a><img class="clothe__imag" src="./images/girl4.jpg" aria-data="./images/girl9.jpg"  alt=""></a></li>
+                    
                     </div>
                 </ul>
                 <i class="fas fa-arrow-circle-down" id="slideDown"></i>
+
             </div>
             <div class="clothe__right">
                 <div class="clothe__image">
@@ -511,16 +521,93 @@
             
             
         });
+
+        //////////////////////////// MENU HEADER /////////////////////
+
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav");
+        hamburger.addEventListener("click", () => {
+            $(".nav").toggleClass('activeNav', 1000 );
+            $(".overlayMenu").toggleClass("activeOverlayMenu");
+            if($("#hamburger").hasClass('fa-times')) {
+                $("#hamburger").removeClass('fa-times');
+                $("#hamburger").addClass('fa-bars');
+                //console.log('add')
+            } else { 
+                $("#hamburger").removeClass('fa-bars');
+                $("#hamburger").addClass('fa-times');
+            }
+        });
+
+        $(".nav a").click(()=>{
+            if($(".nav").hasClass('activeNav')) {
+                $(".nav").removeClass('activeNav');
+                $("#hamburger").removeClass('fa-times');
+                $("#hamburger").addClass('fa-bars');
+            }
+            if($(".overlayMenu").hasClass('activeOverlayMenu')) {
+                $(".overlayMenu").removeClass(('activeOverlayMenu'));
+            }
+        })
+
+        $(".overlayMenu").click(() => {
+            $("#hamburger").removeClass("fa-times");
+            $("#hamburger").addClass('fa-bars');
+            $(".nav").removeClass('activeNav', 1000 );
+            $(".overlayMenu").removeClass(('activeOverlayMenu'));
+        })
+
+        
+        // sticky
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 350);
+        })
+
+
         /////////////////////////// CLOTHE SECTION /////////////////////////////
         //close and open the Clothe Section
         $("#closeActiveClotheSection").click(() => {
             $(".clothe").slideUp('2000').css({
                 transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
             }).removeClass('activeClotheSection' );
+            $(".overlay").removeClass('activeOverlay')
         })
         $(".store__item--details a").click(() => {
             $(".clothe").slideDown('2000').addClass('activeClotheSection');
+            $(".overlay").addClass('activeOverlay')
         })
+        /// OVERLAY remove all the modals
+
+        $(".overlay").click(() => {
+            console.log('overlay')
+            if($(".clothe").hasClass('activeClotheSection')) {
+                $(".clothe").slideUp('2000').css({
+                transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
+                }).removeClass('activeClotheSection' );
+            }
+            if($(".contact").hasClass('activeContactSection')) {
+                $(".contact").slideUp('2000').css({
+                transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
+                }).removeClass('activeContactSection' );
+            }
+            if($(".checkout").hasClass('activeCheckoutSection')) {
+                $(".checkout").slideUp('2000').css({
+                transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
+                }).removeClass('activeCheckoutSection' );
+            }
+            $(".overlay").removeClass('activeOverlay')
+            $("body").css('overflow', '');
+
+            
+        })
+
+        var menu = $('.clothe')
+        menu.on('mousewheel', function(e, d) {
+            if((this.scrollTop === (menu[0].scrollHeight - menu.height()) && d < 0) || (this.scrollTop === 0 && d > 0)) {
+                e.preventDefault();
+            }
+        });
 
         // change image on menu 
         $(".clothe__imag").click(function() {
@@ -541,6 +628,7 @@
         slideDown.click(function() {
             $("#slider").animate({scrollTop: '+=150px'}, 800);
         })
+        
 
         /////////////////////////// CONTACT SECTION /////////////////////////////
 
@@ -550,8 +638,10 @@
             $(".contact").slideUp('2000').css({
                 transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
             }).removeClass('activeContactSection' );
+            $(".overlay").removeClass('activeOverlay')
         })
         $("#contact__us").click(() => {
+            $(".overlay").addClass('activeOverlay')
             $(".contact").slideDown('2000').css({
                 transition: 'display 1s ease-in-out, top .5s ease-in-out'
             }).addClass('activeContactSection');
@@ -565,9 +655,13 @@
             $(".checkout").slideUp('2000').css({
                 transition: 'display .5s ease-in-out, top 1s ease, transform 1s'
             }).removeClass('activeCheckoutSection' );
+            $(".overlay").removeClass('activeOverlay')
+            $("body").css('overflow', '');
         })
         $("#checkout__open").click(() => {
             $(".checkout").slideDown('2000').addClass('activeCheckoutSection');
+            $(".overlay").addClass('activeOverlay')
+            $("body").css('overflow', 'hidden');
         })
         $("#slideUpChkout").click(function() {
             $(".sliderChkout").animate({scrollTop: '-=150px'}, 800);

@@ -9,9 +9,7 @@
     & .store__header--menu .active {
         color: $color-sea;
     }
-    & .store__header--menu .active {
-        color: $color-sea;
-    }
+    
     & .store__item--details a {
         background-color: $color-sea;
     }
@@ -21,6 +19,9 @@
         color: $color-coral;
     }
     & .store__header--menu a:hover {
+        color: $color-grey-dark-3;
+    }
+    & .store__header--menu .active {
         color: $color-grey-dark-3;
     }
     & .store__item--details a {
@@ -102,6 +103,12 @@
             margin-bottom: 4.5rem;
             transition: all 2s;
             overflow: hidden;
+            @media screen and (max-width: $bp-md) {
+                flex: 0 0 47%;
+            }
+            @media screen and (max-width: $bp-small) {
+                flex: 0 0 100%;
+            }
             &:hover {
                 & .store__item--details {
                     opacity: 1;
